@@ -1,0 +1,16 @@
+<div class="container">
+	<h2><center>Book Details</center></h2>
+	<strong>ISBN:</strong>   {{book.isbn}} <br/>
+	<br/>
+	<strong>Title:</strong>  {{book.title}} <br/>
+	<br/>
+	<strong>Author:</strong>  {{book.author}} <br/>
+	<br/>
+	<strong>Price:</strong>  {{book.price}} <br/>
+	<br/>
+	<strong>AvailableOn:</strong>  {{book.availableOn}} <br/>
+	<br/>
+	<a href="#/dispEdit?isbn={{book.isbn}}"><button type="button" class="btn btn-success" >Edit</button></a>
+	<button type="button" class="btn btn-danger" ng-click="deleteBook(book.isbn)">delete</button>
+	<a href="index.html" style="float:right"><strong>Back</strong></a>
+</div>

@@ -1,0 +1,39 @@
+<div id="AuthorE">
+<div class="authEdt">
+<img src="images/auth.jpg" class="img1">
+<h3><center>Edit Author Details</center></h3>
+
+</div>
+<div class="authdetails">
+<form>
+	<label>Emp ID:
+        <input type="text" class="form-control" ng-model="author.empid" id="empid" disabled> </label> <br/>
+	<br/>
+	<label>Name:
+        <input type="text" class="form-control" ng-model="author.name" id="name"> </label> <br/>
+	<br/>
+	<label>Email:
+        <input type="text" class="form-control" ng-model="author.email" id="email"> </label> <br/>
+		
+	<br/>
+	<label>Skills:</label>
+    <div class="checkbox-inline">
+			<label ng-repeat="skill in skills" class="col-lg-6">
+			<input type="checkbox"  ng-click="chkSelected(skill)" value="" ng-checked="">
+			{{skill}} 
+			</label>
+    </div>
+	<br/>
+	<br/>
+	<label>Department:
+        <input type="text" class="form-control" ng-model="author.department" id="department"> </label> <br/>
+	<br/>
+	<label>Website:
+        <input type="text" class="form-control" ng-model="author.website" id="website"> </label> <br/>
+	<br/>
+	<button type="button" class="btn btn-success" ng-click="updateAuthor(author)">Update</button>
+	<button type="button" class="btn btn-danger" ng-click="deleteAuth(author.empid)">delete</button>
+	<a href="index.html" style="float:right"><strong>Back</strong></a>
+</form>
+</div>
+</div>

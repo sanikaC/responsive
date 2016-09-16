@@ -1,0 +1,36 @@
+<div class="container">
+	<h2>Add New Book</h2>
+	<form id="newBook">
+	
+		<div class="form-group">
+			<label for="ISBN">ISBN:</label>
+			<input type="text" class="form-control" ng-model="isbn" id="isbn" placeholder="Enter ISBN" required>
+		</div>
+		<div class="form-group">
+			<label for="Title">Title</label>
+			<input type="text" class="form-control" ng-model="title" id="title" placeholder="Enter Title" required>
+		</div>
+			<div class="form-group">
+			<label for="Author">Author</label>
+			<input type="text" class="form-control" ng-model="author" id="author" placeholder="Enter Author Name" required>
+		</div>
+			<div class="form-group">
+			<label for="Price">Price</label>
+			<input type="number" class="form-control" ng-model="price" id="price" placeholder="Enter Price" required>
+		</div>
+		<div class = "check-box-panel">
+			<label>Available On:</label>
+				<div ng-repeat = "avail in availableOn">
+					<div class = "action-checkbox">
+						<input id = "{{avail.l}}" type = "checkbox" value = "{{avail.l}}" ng-checked = "selection.indexOf(avail.l)>-1" ng-click = "toggleSelection(avail.l)" />
+						<label for = "{{avail.l}}"></label>
+						{{avail.l}}
+					</div>
+				</div>
+		</div>
+		<br/>
+		<button type="submit" class="btn btn-success btn-block" ng-click="SendData()">Submit</button>
+		<a href="index.html" style="float:right"><strong>Back</strong></a>
+	</form>
+</div>
+

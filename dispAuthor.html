@@ -1,0 +1,18 @@
+<div class="container">
+	<center><h3>Author profile</h3></center>
+	<strong>Emp id:</strong>{{author.empid}} <br/>
+	<br/>
+	<strong>Name:</strong>{{author.name}} <br/>
+	<br/>
+	<strong>Email:</strong>{{author.email}} <br/>
+	<br/>
+	<strong>Skills:</strong>{{author.skills}} <br/>
+	<br/>
+	<strong>Department:</strong>{{author.department}} <br/>
+	<br/>
+	<strong>Website:</strong>{{author.website}} <br/>
+	<br/>
+	<a href="#/authEdit?name={{author.name}}"><button type="button" class="btn btn-success" >Edit</button></a>
+	<button type="button" class="btn btn-danger" ng-click="deleteAuth(author.empid)">delete</button>
+	<a href="index.html" style="float:right"><strong>Back</strong></a>
+</div>

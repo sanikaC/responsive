@@ -1,0 +1,26 @@
+<div id="bookdetails">
+<h3><center>Edit book details</center></h3>
+<form>
+	<label>ISBN:
+        <input type="text" class="form-control"  ng-model="book.isbn" id="isbn" disabled> </label> <br/>
+	<label>Title:
+        <input type="text" class="form-control"  ng-model="book.title" id="title"> </label> <br/>
+	<label>Author:
+        <input type="text" class="form-control" ng-model="book.author" id="author"> </label> <br/>
+	<label>Price:
+        <input type="text" class="form-control" ng-model="book.price" id="price"> </label> <br/>
+	
+	<label>Available On :</label>
+    <div class="checkbox-inline">
+			<label ng-repeat="cb in availableOn" class="col-lg-6">
+			<input type="checkbox"  ng-click="chkSelected(cb)" value="" ng-checked="">
+			{{cb}} 
+			</label>
+    </div>
+
+	<br/>
+	<button type="button" class="btn btn-success" ng-click="updateBook(book);">Update</button>
+	<button type="button" class="btn btn-danger" ng-click="deleteBook(book.isbn)">delete</button>
+	<a href="index.html" style="float:right"><strong>Back</strong></a>
+</form>
+</div>

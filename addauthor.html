@@ -1,0 +1,40 @@
+<div class="container">
+	<h2>Add New Author</h2>
+	<form>
+		<div class="form-group">
+			<label for="empid">Employee Id:</label>
+			<input type="text" class="form-control" ng-model="empid" id="empid" placeholder="Enter employee id" required>
+		</div>
+		<div class="form-group">
+			<label for="Name">Author Name:</label>
+			<input type="text" class="form-control" ng-model="name" id="name" placeholder="Enter Author Name" required>
+		</div>
+		<div class="form-group">
+			<label for="email">Email:</label>
+			<input type="email" class="form-control" ng-model="email" id="email" placeholder="Enter Email" required>
+		</div>
+		
+		<div class = "check-box-panel">
+			<label>Skills:</label>
+				<div ng-repeat = "skill in skills">
+					<div class = "action-checkbox">
+						<input id = "{{skill.l}}" type = "checkbox" value = "{{skill.l}}" ng-checked = "selection.indexOf(skill.l)>-1" ng-click = "toggleSelection(skill.l)" />
+						<label for = "{{skill.l}}"></label>
+						{{skill.l}}
+					</div>
+				</div>
+		</div>
+		
+		<div class="form-group">
+			<label for="department">Department:</label>
+			<input type="text" class="form-control" ng-model="department" id="department" value="engineering" required>
+		</div>
+		<div class="form-group">
+			<label for="website">Website:</label>
+			<input type="text" class="form-control" ng-model="website" id="website" >
+		</div>
+		<br/>
+		<button type="submit" class="btn btn-success btn-block" ng-click="SendAuthor()">Submit</button>
+		<a href="index.html" style="float:right"><strong>Back</strong></a>
+	</form>
+</div>

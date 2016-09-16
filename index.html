@@ -1,236 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
 <html>
-	<head>
-		<meta charset="utf-8">
-		
-		<!-- TELLS PHONES NOT TO LIE ABOUT THEIR WIDTH -->
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		
-		<!-- *************** LOAD THE GOOGLE FONT ****************** -->
-		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet'>
-		<link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
-		
-		<!-- *************** STYLE SHEETS ****************** -->
-		<link href="styles/reset.css" rel="stylesheet">
-		<!-- phone-default -->
-		<link href="styles/phone-default.css" rel="stylesheet">
-		<!-- enhance-tablet -->
-		<link href="styles/tablet.css" rel="stylesheet">
-		<!-- enhance-desktop -->
-		<link href="styles/desktop.css" rel="stylesheet">
-		<link rel="stylesheet" href="styles/style.css">
-		
-		<!--[if lt IE 9]>
-		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-		<![endif]-->
-		
-	</head>
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Project</title>
+								<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel=stylesheet href="style.css">
+								<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+							<!-- Latest compiled and minified JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.js"></script>     
+       
+</head>
+<body ng-app="myApp">
+<script src="script.js"></script>
+<div class="container-fluid" ng-controller="displaybookCtrl">
+
+	<div class="title1">
+	<img src="images/book.jpg" class="img1"></img>
+	<center><h2>Online Book Repository</h2></center></div>
+	<section class="addbtn">
+	<a href="#/addbook">  <button type="button" class="btn btn-primary"> ADD BOOK </button></a>
+	<a href="#/addauthor">  <button type="button" class="btn btn-primary"> ADD AUTHOR </button></a> <br><br> 
+	</section>
 	
-	<body class="Body">
-	<div class="container">
-		<div id="colorbar">
-		</div>
+	
+    <div ng-view></div> 
+    <br><br>
+	<table class="table table-bordered table-hover">
+		<thead>
+			<tr>
+				<th>ISBN</th>
+				<th>Title</th>
+				<th>Author</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="book in mybook">
+				<td ng-click="dispBook(book.isbn)"><a href='#/dispBook?isbn={{book.isbn}}'>{{book.isbn}}</a></td>
+				<td>{{book.title}}</td>
+				<td><a href='#/dispAuthor?name={{book.author}}'>{{book.author}}</a></td>
+			</tr>
+		</tbody>
+	  </table>
 		
-		<header>
-			<h2>Lingulo HTML5</h2>
-			<div class="headerpart">
-			  <p class="tagline">a responsive web tutorial</p>
-				  <ul>
-					  <li><a href="#" onclick="return false;">Home</a></li>
-					  <li><a href="#" onclick="return false;">Porfolio</a></li>
-					  <li><a href="#" onclick="return false;">About</a></li>
-					  <li><a href="#" onclick="return false;">Contact</a></li>
-				  </ul>
-			</div>	  
-		</header>
-		
-		<section class="cover">
-		
-			<article class="cover-ele1">
-				<h4>Nulla Consequat</h4>
-			</article>
-			
-			<article class="cover-ele2">
-				<p>"Lorem ipsum dolor sit amet,consectetur adipiscing
-				elit, sed do eiusmod tempor incididunt ut labore et"</p>
-			</article>
-			
-			<article class="cover-ele3">
-				<h4 class="H4" align="center">Mehr lesen</h4>
-			</article>
-			
-		</section>
-		
-		<section class="coverBottom">
-			<div class="Tag">
-					<h3>Lorem Ipsum dollar sit amet consectetuer adipscing elit?</h3>
-			</div>
-			<div>                     <!--div for Input type tag-->
-				<input type="text" class="inputField" placeholder="Enter your email">
-				 <input type="button" class="search" value="Search" style="color:white">
-			</div>
-		</section>
-
-		<section id="contentWrapper">
-			<article class="row-1">
-				<div class="column-4">
-					<div class="icon1"><img src="images\icon1.png"></div>
-					<p class="P">Lorem Ipsum</p>
-					<p>Sed ut perspiciatis, unde omnis iste natus error sit voluptatem
-				accusantium doloremque laudantium, </p>
-				</div>
-				
-				<div class="column-4">
-					<div class="icon1"><img src="images\icon2.png"></div>
-					<p class="P">Consectetuer</p>
-					<p>totam rem aperiam eaque ipsa, 
-				quae ab illo inventore veritatis aut officiis</p>
-				</div>
-				
-				<div class="column-4">
-					<div class="icon1"><img src="images\icon3.png"></div>
-					<p class="P"> Dolor sit Amet</p>
-					<p>Nemo enim ipsam voluptatem, quia voluptas sit
-				 Temporibus autem quibusdam et </p>
-				</div>
-			</article>
-		
-			<article class="column-12">
-				<p class="p2">Lorem Ipsum</p>
-				<hr class="hr1"></hr>
-			</article>
-			
-			<article class="row-11">
-				<div class="column-2">
-
-				</div>
-				
-				<div class="column-2">
-					<img src="images/example-slide-1.jpg" alt="sunset"/>
-					<p class="p3">Photo by:Some name</p>
-					<hr>
-					<p>Sed ut perspiciatis, unde omnis iste natus error sit voluptatem 
-					   accusantium doloremque.</p>
-				</div>
-				
-				<div class="column-2">
-					<img src="images/example-slide-2.jpg" alt="sunset"/>
-					<p class="p3">Photo by:Some name</p>
-					<hr>
-					<p>totam rem aperiam eaque ipsa, quae ab illo inventore veritatis 
-					   et.</p>
-				</div>
-				
-				<div class="column-2">
-					<img src="images/example-slide-3.jpg" alt="sunset"/>
-					<p class="p3">Photo by:Some name</p>
-					<hr>
-					<p> dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas
-						sit,oud.</p>
-				</div>
-				
-				<div class="column-2">
-					<img src="images/images.jpg" alt="bridge"/>
-					<p class="p3">Photo by:Some name</p>
-					<hr>
-					<p>odit aut fugit, sed quia consequuntur magni dolores eos, qui
-					ratione voluptatem sequi</p>
-				</div>
-				
-				<div class="column-2">
-				
-				</div>
-			</article>
-		</section>
-		
-		<br>
-		<br>
-		
-		<div class="row-2">
-			<div class="row_2a">
-				<p class="P">Dolor Sit Amet</p>
-				<hr>
-				<p>Sed ut perspiciatis, unde omnis iste natus error sit voluptatem
-				accusantium doloremque laudantium, totam rem aperiam eaque ipsa, 
-				quae ab illo inventore veritatis et quasi architecto beatae</p>
-				<p>vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit
-				 Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet, 
-				ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic</p>
-			</div>
-			
-			<div class="row_2b">
-			
-				<div class="row_2b1">
-					<img src="images/rocket.png" style="float:left" height="80px" width="100px"/>
-					<p align="justify"> Et harum quidem rerum facilis est et expedita distinctio. 
-					Nam libero tempore,cum soluta nobis est eligendi optio.</p>
-				</div>
-				
-				<div class="row_2b2">
-					<img src="images/icon5.png" style="float:left" height="80px" width="100px"/>
-					<p align="justify">Et harum quidem rerum facilis est et expedita distinctio. 
-					Nam libero tempore,cum soluta nobis est eligendi optio.</p>
-				</div>
-			</div>
-		</div>
-		
-		<div class="row-3">
-			<div class="row_3a">
-				<div class="column-3a1">
-					<h3>Lorem Ipsum</h3>
-					<hr>
-					<p>facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi
-					optio, cumque nihil impedit, quo minus id, quod maxime placeat, facere possimus, omnis 
-					voluptas assumenda est, omnidolor repellendus. Temporibus autem quibusdam et aut officiis
-					debitis aut rerum necessitatibus saepe eveniet</p>
-				</div>
-				
-				<div class="column-3a1">
-					<h3>Conscetetuer</h3>
-					<hr>
-					<a href="#" onclick="return false;"><img src="images\arrow.png"/>
-					<p align="justify" class="p1"> Et harum quidem rerum fac</p>
-					<hr>
-					<a href="#" onclick="return false;"><img src="images\arrow.png"/>
-					<p align="justify" class="p1">cum soluta nobis est eligen</p>
-					<hr>
-					<a href="#" onclick="return false;"><img src="images\arrow.png"/>
-					<p align="justify" class="p1">est eligendi optio.</p>
-					<hr>
-					<a href="#" onclick="return false;"><img src="images\arrow.png"/>
-					<p align="justify" class="p1">conseq magni dolores</p>
-					<hr>
-				</div>
-				
-				<div class="column-3a1">
-					<h3> Dolor sit Amet</h3>
-					<hr>
-					<img src="images\example-slide-1.jpg" class="img1"/>
-					<p class="bottom-p">facilis est et expedita distinctio.Nam libero</p>
-					<img src="images\example-slide-2.jpg" class="img1"/>
-					<p class="bottom-p">cum soluta nobis est eligendi optio Nam</p>
-					<img src="images\example-slide-3.jpg" style="margin-top:10px;" class="img1"/>
-					<p class="bottom-p">quod maxime placea eat,face re possi</p>
-				</div>
-			</div>
-		</div>
-		
-		<div id="footerWrapper">
-			<footer>
-				<p>&copy; Copyright 2012 by <strong>Example</strong>.All rights reserved.</p>
-				<nav>
-					<ul>
-						<li><a href="#" onclick="return false;"><img  class="foot_icon" src="images\icon6.png"/></li>
-						<li><a href="#" onclick="return false;"><img  class="foot_icon" src="images\icon7.png"/></li>
-						<li><a href="#" onclick="return false;"><img  class="foot_icon" src="images\icon8.png"/></li>
-						<li><a href="#" onclick="return false;"><img  class="foot_icon" src="images\icon9.png"/></li>
-						<li><a href="#" onclick="return false;"><img  class="foot_icon" src="images\icon10.png"/></li>
-					</ul>
-				</nav>
-			</footer>
-		</div>
 	</div>
-	</body>
+</body>
 </html>
